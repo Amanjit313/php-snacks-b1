@@ -22,7 +22,7 @@
     ]
   ];
 
-  var_dump([$alunni]);
+  /* var_dump([$alunni]); */
 
 ?>
 
