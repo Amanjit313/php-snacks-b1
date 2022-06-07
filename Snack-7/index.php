@@ -2,32 +2,27 @@
 
 /* Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. Stampare Nome, Cognome e la media dei voti di ogni alunno. */
 
-  $alunnoUno = (
+  $alunni = [
     [
-      $nome = "Sara",
-      $cognome = "Alitico",
-      $voti = array(10, 8, 10, 6, 5),
-      $mediaVoti = array_sum($voti) / count($voti)
-      ]
-    );
+      'nome' => 'Sara',
+      'cognome' => 'Alitico',
+      'voti' => [10, 8, 10, 6, 5]
+    ],
 
-  $alunnoDue = (
     [
-      $nome = "Kevin",
-      $cognome = "Katarri",
-      $voti = array(6, 8, 9, 7, 10),
-      $mediaVoti = array_sum($voti) / count($voti)
-  ]
-  );
+      'nome' => 'Kevin',
+      'cognome' => 'Katarri',
+      'voti' => [6, 8, 9, 7, 10]
+    ],
 
-  $alunnoTre = (
     [
-      $nome = "Omar",
-      $cognome = "Polito",
-      $voti = array(6, 6, 9, 6, 8),
-      $mediaVoti = array_sum($voti) / count($voti)
-  ]
-  );
+      'nome' => 'Omar',
+      'cognome' => 'Polito',
+      'voti' => [6, 6, 9, 6, 8]
+    ]
+  ];
+
+  var_dump([$alunni]);
 
 ?>
 
@@ -42,21 +37,19 @@
 </head>
 <body>
 
-  <h1>Nome alunno/a = <?php echo $alunnoUno[0]?> </h1>
-  <h1>Cognome alunno/a = <?php echo $alunnoUno[1]?> </h1>
-  <h1>Media dei voti = <?php echo $alunnoUno[3]?> </h1>
+  <h1>
+    <?php
+      for ($i = 0; $i < count($alunni); $i++){
+        echo "Alunno/a: ";
+        echo $alunni[$i]['nome'];
+        echo $alunni[$i]['cognome']."<br>";
 
-  <br>
-
-  <h1>Nome alunno/a = <?php echo $alunnoDue[0]?> </h1>
-  <h1>Cognome alunno/a = <?php echo $alunnoDue[1]?> </h1>
-  <h1>Media dei voti = <?php echo $alunnoDue[3]?> </h1>
-
-  <br>
-
-  <h1>Nome alunno/a = <?php echo $alunnoTre[0]?> </h1>
-  <h1>Cognome alunno/a = <?php echo $alunnoTre[1]?> </h1>
-  <h1>Media dei voti = <?php echo $alunnoTre[3]?> </h1>
+        $mediaVoti = array_sum($alunni[$i]['voti']) / count($alunni[$i]['voti']);
+        echo $mediaVoti;
+        echo "<hr>";
+      }
+    ?>
+  </h1>
 
 </body>
 </html>
