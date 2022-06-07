@@ -6,19 +6,21 @@
   $email = $_GET["email"];
   $age = $_GET["age"];
 
-  var_dump([$name, $email, $age]);
+  $accessoGarantito = "Accesso Garantito!";
 
-/*   $accessoGarantito = true;
-
-  if(empty($_GET["name"])) || (empty($_GET["email"])) || (empty($_GET["age"])){
-    $accessoGarantito = false;
+  if(empty($_GET['name']) || empty($_GET['email']) || empty($_GET['age'])){
+    $accessoGarantito = "Accesso Negato!";
+    $errore = "Completa tutti i campi!";
+  }elseif(strlen($_GET['name']) < 3){
+    $accessoGarantito = "Accesso Negato!";
+    $errore = "Inserisci 3 o più parole nel nome!";
+  }elseif(!strpos($_GET['email'], '@') || !strpos($_GET['email'], '.')){
+    $accessoGarantito = "Accesso Negato!";
+    $errore = "L'email deve contenere almeno una @ e un . !";
+  }elseif(!is_numeric($_GET['age'])){
+    $accessoGarantito = "Accesso Negato!";
+    $errore = "L'età deve essere inserita tramite un numero!";
   }
-
-  if($accessoGarantito){
-    $output = "Accesso Garantito!"
-  } else{
-    $output = "Accesso Negato!"
-  } */
 
 ?>
 
@@ -37,6 +39,7 @@
   <h1>Email dell'utente: <?php echo $email ?></h1>
   <h1>L'età dell'utente: <?php echo $age ?></h1>
   <br>
-  <h1><?php echo $output ?></h1>
+  <h1><?php echo $accessoGarantito ?></h1>
+  <h2><?php echo $errore ?></h2>
 </body>
 </html>
