@@ -1,9 +1,17 @@
 <?php 
 
 /* Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta */
+$freq = [];
+$times = 15;
+$number = rand(1,15);
+
+for($i = 0; $i < $times; $i++){
+  while(in_array($number, $freq))$number = rand(1,15);
+  $freq[] = $number;
+  echo($number)."<br>";
+}
 
 ?>
-
 
 
 <!DOCTYPE html>
