@@ -44,7 +44,7 @@
         echo $alunni[$i]['nome'];
         echo $alunni[$i]['cognome']."<br>";
 
-        $mediaVoti = array_sum($alunni[$i]['voti']) / count($alunni[$i]['voti']);
+        $mediaVoti = round(array_sum($alunni[$i]['voti']) / count($alunni[$i]['voti']));
         echo $mediaVoti;
         echo "<hr>";
       }
